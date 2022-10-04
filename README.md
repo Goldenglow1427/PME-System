@@ -36,6 +36,15 @@ Packages arrived today: Chtholly Nota Seniorious, Constantine XI Palaiologos, Fi
 
 The update history is attached to the form below.
 
-| Version | Published Date | Major Updates                                         |
-| ------- | -------------- | ----------------------------------------------------- |
-| 1.0     | Oct. 3, 2022   | Complete the program that can meet the basic demands. |
+| Version | Published Date | Major Updates                                                |
+| ------- | -------------- | ------------------------------------------------------------ |
+| 1.0     | Oct. 3, 2022   | Complete the program that can meet the basic demands.        |
+| 1.1     | Oct. 4, 2022   | Added different templates to the program so that the message could be more various. |
+
+Following update plan are as below - they are planned to be done later.
+
+- [ ] Add different templates to the program;
+- [ ] Allow to add remarks such as "special thanks";
+- [ ] Improve the user interface;
+- [ ] Tidy the code to make it more organized and easy to understand;
+- [ ] Forthcoming...

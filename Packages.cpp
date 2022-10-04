@@ -6,10 +6,10 @@
 #include <string>
 #include <cstring>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
-int n;
 string ans;
 char str[100010];
 
@@ -26,12 +26,12 @@ void setup()
     printf("Version 1.0, Create By Victor Chen\n");
 
     printf("\n");
-
-    ans += "Packages arrived today: ";
 }
 
 void getName()
 {
+    int n = 0;
+
     printf("Please enter the name of package owners today, ended by -1\n");
     while(true)
     {
@@ -48,13 +48,6 @@ void getName()
 
     sort(names+1, names+n+1, cmp);
 
-    printf("All the inputs are loaded!\n");
-
-    printf("\n");
-}
-
-void output()
-{
     for(int i=1; i<n; i++)
     {
         ans += names[i];
@@ -63,9 +56,41 @@ void output()
 
     ans += names[n];
 
-    cout<<ans<<endl;
+    printf("All the inputs are loaded!\n");
 
     printf("\n");
+}
+
+void output()
+{
+    srand(time(0));
+
+    printf("\n");
+
+    ifstream infile;
+    infile.open("Template.dat");
+
+    int n, rnd;
+
+    infile>>n;
+
+    rnd = rand()%n + 1;
+
+    string x;
+    getline(infile, x);
+    for(int i=1; i<=2*(rnd-1); i++)
+        getline(infile, x);
+    
+    getline(infile, x);
+    if(x.at(0) != '-')
+        ans = x + ans;
+    getline(infile, x);
+    if(x.at(0) != '-')
+        ans = ans + x;
+
+    infile.close();
+
+    cout<<ans<<endl;
 
     printf("Automatically copied to the clipboard\n");
 
@@ -77,6 +102,8 @@ void output()
 
 int main()
 {
+    srand(time(0));
+
     setup();
     getName();
     output();
