@@ -43,8 +43,8 @@ The update history is attached to the form below.
 
 Following update plan are as below - they are planned to be done later.
 
-- [ ] Add different templates to the program;
+- [x] Add different templates to the program;
 - [ ] Allow to add remarks such as "special thanks";
-- [ ] Improve the user interface;
+- [ ] Improve the user interface and readme guide;
 - [ ] Tidy the code to make it more organized and easy to understand;
 - [ ] Forthcoming...
