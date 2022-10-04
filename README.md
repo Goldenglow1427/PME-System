@@ -8,7 +8,9 @@ This is a system for creating a message to inform the owner of packages everyday
 
 After you get into the system, you need to directly input the name of owners in lines.
 
-![image-20221003222635082.png](https://s2.loli.net/2022/10/04/Q25z1LAqJC6OWXU.png)
+<p align="center">
+  <img src="https://s2.loli.net/2022/10/04/Q25z1LAqJC6OWXU.png" alt="Sample Image"/>
+</p>
 
 When you're finished, input "-1" as the ending signal. A sample input is attached below.
 
