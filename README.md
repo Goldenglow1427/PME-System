@@ -39,5 +39,3 @@ The update history is attached to the form below.
 | Version | Published Date | Major Updates                                         |
 | ------- | -------------- | ----------------------------------------------------- |
 | 1.0     | Oct. 3, 2022   | Complete the program that can meet the basic demands. |
-|         |                |                                                       |
-|         |                |                                                       |

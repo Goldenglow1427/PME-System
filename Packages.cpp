@@ -48,7 +48,7 @@ void getName()
 
     sort(names+1, names+n+1, cmp);
 
-    printf("All the input are loaded!\n");
+    printf("All the inputs are loaded!\n");
 
     printf("\n");
 }
