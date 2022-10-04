@@ -23,7 +23,7 @@ bool cmp(string x, string y)
 void setup()
 {
     printf("Welcome to use the package message editor system!\n");
-    printf("Version 1.0, Create By Victor Chen\n");
+    printf("Version 1.1, Create By Victor Chen\n");
 
     printf("\n");
 }
