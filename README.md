@@ -1,6 +1,6 @@
 ## Package Message Editor System
 
-<div style="text-align: right"><em>Oct. 3, 2022: By Victor Chen</em></div>
+<p align="right"><em>Oct. 3, 2022: By Victor Chen</em></p>
 
 This is a system for creating a message to inform the owner of packages everyday in *Almost Everyone* group chat.
 
