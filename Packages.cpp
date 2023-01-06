@@ -11,24 +11,46 @@
 using namespace std;
 
 string ans;
+
+// This is for loading the command into the Command Prompt.
 char str[100010];
 
+// Compare two string by alphabetical order.
 bool cmp(string x, string y)
 {
     return x < y;
 }
 
+// Transform an integer into string
+string transInt(int x)
+{
+    int len = 0;
+    string ret = "";
+    while(x != 0)
+    {
+        ret += (char)(x%10+'0');
+        x /= 10;
+
+        len++;
+    }
+    
+    for(int i=0; i<len/2; i++)
+        swap(ret[i], ret[len-i-1]);
+
+    return ret;
+}
+
 class Names
 {
     private:
-        int len;
+        int len = 0;
         string name[10010];
     
     public:
         void query(); // Get the name from user's input.
         void reorganize(); // Reorganize the name list.
         void loadTo(string &x); // Load the names into a list.
-}owner;
+}owner, helper;
 
 void Names::query()
 {
@@ -52,14 +74,83 @@ void Names::reorganize()
 }
 void Names::loadTo(string &x)
 {
-    x = "";
+    string withRep = ""; // The name list with repetition.
+    string withoutRep = ""; // The name list without repetition.
+    string countRep = ""; // The name list that counts the amount of repetition.
+    
+    int cnt = 1;
     for(int i=1; i<len; i++)
     {
-        x += name[i];
-        x += ", ";
+        withRep += name[i];
+        withRep += ", ";
+
+        if(name[i] != name[i-1])
+        {
+            if(cnt > 1)
+            {
+                countRep += "(";
+                countRep += transInt(cnt);
+                countRep += "), ";
+            }
+            else if(i != 1)
+                countRep += ", ";
+            cnt = 1;
+            withoutRep += name[i];
+            withoutRep += ", ";
+
+            countRep += name[i];
+        }
+        else
+            cnt++;
     }
 
-    x += name[len];
+    withRep += name[len];
+    if(name[len] != name[len-1])
+    {
+        if(cnt > 1)
+        {
+            countRep += "(";
+            countRep += transInt(cnt);
+            countRep += "), ";
+        }
+        else
+            countRep += ", ";
+
+        withoutRep += name[len];
+        countRep += name[len];
+    }
+    else
+    {
+        cnt++;
+        countRep += "(";
+        countRep += transInt(cnt);
+        countRep += ")";
+    }
+    
+    if(withRep != withoutRep)
+    {
+        printf("\n");
+        printf("Repetition detected in the input. Do you want to leave the same name?\n");
+        printf("Y stands for you want to remain all the repetition.\n");
+        printf("N stands for deleting all repetition while only remains one.\n");
+        printf("C stands for recording the amount that repeating name occurs.\n");
+
+        char receiver;
+        scanf("%c", &receiver);
+
+        if(receiver == 'Y')
+        {
+            printf("Affirmative answer received.\n");
+            printf("\n");
+            x = withRep;
+        }
+        else if(receiver == 'N')
+            x = withoutRep;
+        else if(receiver == 'C')
+            x = countRep;
+    }
+    else
+       x = withoutRep;
 }
 
 void setup()
@@ -81,15 +172,11 @@ void getName()
     owner.loadTo(ans);
 
     printf("All the inputs are loaded!\n");
-
-    printf("\n");
 }
 
 void output()
 {
     srand(time(0));
-
-    printf("\n");
 
     ifstream infile;
     infile.open("Template.dat");
