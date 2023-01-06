@@ -13,11 +13,53 @@ using namespace std;
 string ans;
 char str[100010];
 
-string names[10010];
-
 bool cmp(string x, string y)
 {
     return x < y;
+}
+
+class Names
+{
+    private:
+        int len;
+        string name[10010];
+    
+    public:
+        void query(); // Get the name from user's input.
+        void reorganize(); // Reorganize the name list.
+        void loadTo(string &x); // Load the names into a list.
+}owner;
+
+void Names::query()
+{
+    len = 0;
+    while(true)
+    {
+        string x;
+        len++;
+        getline(cin, name[len]);
+
+        if(name[len].at(0) == '-' && name[len].at(1) == '1')
+        {
+            len--;
+            break;
+        }
+    }
+}
+void Names::reorganize()
+{
+    sort(name+1, name+len+1, cmp);
+}
+void Names::loadTo(string &x)
+{
+    x = "";
+    for(int i=1; i<len; i++)
+    {
+        x += name[i];
+        x += ", ";
+    }
+
+    x += name[len];
 }
 
 void setup()
@@ -33,28 +75,10 @@ void getName()
     int n = 0;
 
     printf("Please enter the name of package owners today, ended by -1\n");
-    while(true)
-    {
-        string x;
-        n++;
-        getline(cin, names[n]);
-
-        if(names[n].at(0) == '-' && names[n].at(1) == '1')
-        {
-            n--;
-            break;
-        }
-    }
-
-    sort(names+1, names+n+1, cmp);
-
-    for(int i=1; i<n; i++)
-    {
-        ans += names[i];
-        ans += ", ";
-    }
-
-    ans += names[n];
+    
+    owner.query();
+    owner.reorganize();
+    owner.loadTo(ans);
 
     printf("All the inputs are loaded!\n");
 

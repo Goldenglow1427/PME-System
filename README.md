@@ -48,4 +48,5 @@ Following update plan are as below - they are planned to be done later.
 - [ ] Improve the user interface and readme guide;
 - [ ] Tidy the code to make it more organized and easy to understand;
 - [ ] Improve the compatibility of input format;
+- [ ] Delete the repeated name automatically;
 - [ ] Forthcoming...
